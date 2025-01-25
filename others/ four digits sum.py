@@ -52,12 +52,30 @@ def solution2(S):
 
     return dp[S]
 
+def solution3(S):
+    dp = [[0]*(S+1) for _ in range(5)]
+    
+    dp[0][0] = 1
+    
+    for i in range(1, 5):           
+        for s in range(S+1):        
+            ways = 0
+            for digit in range(10): 
+                if s - digit >= 0:
+                    ways += dp[i-1][s - digit]
+            dp[i][s] = ways
+    
+    for i in dp:
+        print(i)
+    
+    return dp[4][S]
+
 
 import time
 
 start = time.time()
-S = 19
-res = solution2(S)
+S = 2
+res = solution3(S)
 print(res)
 end = time.time()
 print(end - start)
