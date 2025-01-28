@@ -75,7 +75,7 @@ import time
 
 start = time.time()
 S = 2
-res = solution3(S)
+res = solution2(S)
 print(res)
 end = time.time()
 print(end - start)
